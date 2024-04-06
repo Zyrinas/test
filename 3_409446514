@@ -1,1 +1,16 @@
-e
+3.
+import random
+
+def quicksort(array):
+    if len(array) <= 1:
+        return array
+    a = array[len(array) // 2]
+    l = [x for x in array if x < a]
+    m = [x for x in array if x == a]
+    r = [x for x in array if x > a]
+    return quicksort(l) + m + quicksort(r)
+
+random_numbers = [random.randint(1, 100) for _ in range(15)]
+
+sorted_numbers = quicksort(random_numbers)
+print("Sorted Numbers:",sorted_numbers)
